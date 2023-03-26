@@ -80,7 +80,6 @@ const App: React.FC = () => {
   };
 
   const updateBlockingObjects = () => {
-    // Generate new blocking objects
     generateBlockingObjects();
 
     // Check if the MO reached the end position
@@ -276,17 +275,19 @@ const App: React.FC = () => {
 
       await new Promise((resolve) => setTimeout(resolve, 2000)); // Wait for 2 seconds
 
-      const lastBlockingObjectCount =
-        blockingObjectCountIteration[blockingObjectCountIteration.length - 1];
+      if (i === matrixSizes.length - 1) {
+        const lastBlockingObjectCount =
+          blockingObjectCountIteration[blockingObjectCountIteration.length - 1];
 
-      setBlockingObjectCount((prevBlockingObjectCount) => {
-        if (prevBlockingObjectCount !== lastBlockingObjectCount) {
-          return lastBlockingObjectCount;
-        }
-        return prevBlockingObjectCount;
-      });
+        setBlockingObjectCount((prevBlockingObjectCount) => {
+          if (prevBlockingObjectCount !== lastBlockingObjectCount) {
+            return lastBlockingObjectCount;
+          }
+          return prevBlockingObjectCount;
+        });
 
-      onRunButtonClick(startCoordinates[0], startCoordinates[1]);
+        onRunButtonClick(startCoordinates[0], startCoordinates[1]);
+      }
     }
   };
 
