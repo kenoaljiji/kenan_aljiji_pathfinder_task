@@ -273,18 +273,18 @@ const App: React.FC = () => {
         onRunButtonClick(startCoordinates[0], startCoordinates[1]);
       }
 
-      await new Promise((resolve) => setTimeout(resolve, 2000)); // Wait for 2 seconds
+      if (i !== matrixSizes.length - 1) {
+        await new Promise((resolve) => setTimeout(resolve, 2000)); // Wait for 2 seconds
 
-      if (i === matrixSizes.length - 1) {
+        const nextMatrixSize = matrixSizes[i + 1];
+        const nextBlockingObjectCountIteration = blockingObjectCounts[i + 1];
         const lastBlockingObjectCount =
-          blockingObjectCountIteration[blockingObjectCountIteration.length - 1];
+          nextBlockingObjectCountIteration[
+            nextBlockingObjectCountIteration.length - 1
+          ];
 
-        setBlockingObjectCount((prevBlockingObjectCount) => {
-          if (prevBlockingObjectCount !== lastBlockingObjectCount) {
-            return lastBlockingObjectCount;
-          }
-          return prevBlockingObjectCount;
-        });
+        setMatrixSize(nextMatrixSize);
+        setBlockingObjectCount(lastBlockingObjectCount);
 
         onRunButtonClick(startCoordinates[0], startCoordinates[1]);
       }
