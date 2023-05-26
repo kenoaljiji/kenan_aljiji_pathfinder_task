@@ -36,6 +36,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     // Generate initial blocking objects
+
     generateBlockingObjects();
 
     // eslint-disable-next-line
@@ -97,8 +98,9 @@ const App: React.FC = () => {
     setResults([]); // Clear previous results
     setIsRunning(false); // Stop the algorithm if it's running
     setMovingObjectCoordinates([]); // Clear the moving object coordinates
-    setBlockingObjectCoordinates([]); // Clear the blocking object coordinates//
-    generateBlockingObjects();
+    setBlockingObjectCoordinates([]); // Clear the blocking object coordinates
+    setMatrixSize(5); // Reset matrix size
+    generateBlockingObjects(); // Generate new blocking objects
     setExecutionTime(0);
     setStepsCount(0);
     setIsShowTable(false);
@@ -131,6 +133,7 @@ const App: React.FC = () => {
       // Reduce the blocking object count by 1 and try again
       setBlockingObjectCount((prevCount) => prevCount - 1);
       generateBlockingObjects();
+
       return;
     }
 
@@ -228,7 +231,12 @@ const App: React.FC = () => {
       console.log('MO reached the destination!');
       setResults((prevResults) => [
         ...prevResults,
-        { executionTime, stepsCount, matrixSize, blockingObjectCount },
+        {
+          executionTime,
+          stepsCount,
+          matrixSize,
+          blockingObjectCount: initialBlockingCount,
+        },
       ]);
     }
 
@@ -248,8 +256,6 @@ const App: React.FC = () => {
       const matrixSize = matrixSizes[i];
       const blockingObjectCountIteration = blockingObjectCounts[i];
 
-      console.log(blockingObjectCountIteration);
-
       setMatrixSize(matrixSize);
       setStepsCount(0);
       setExecutionTime(0);
@@ -262,6 +268,8 @@ const App: React.FC = () => {
         await new Promise((resolve) => setTimeout(resolve, 2000)); // Wait for 2 seconds
 
         const blockingObjectCount = blockingObjectCountIteration[j];
+
+        setInitialBlockingCount(blockingObjectCount);
 
         setBlockingObjectCount((prevBlockingObjectCount) => {
           if (prevBlockingObjectCount !== blockingObjectCount) {

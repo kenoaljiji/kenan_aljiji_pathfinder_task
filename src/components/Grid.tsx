@@ -17,10 +17,10 @@ const Grid: FC<GridProps> = ({
   movingObjectCoordinates,
   blockingObjectCoordinates,
 }) => {
-  const checkRowSize = matrixSize >= 10 ? '1.5rem' : '3rem';
+  const checkRowSize = matrixSize >= 10 ? '1.5rem' : '2.5rem';
   const gridStyle = {
     display: 'grid',
-    width: '15%',
+    width: '5%',
     maxWidth: '80rem',
     gridTemplateColumns: `repeat(${matrixSize}, 1fr)`,
     gridTemplateRows: 'auto',
