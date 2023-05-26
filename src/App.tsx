@@ -297,7 +297,7 @@ const App: React.FC = () => {
 
   return (
     <div className='App'>
-      <h1>Matrix Pathfinding</h1>
+      <h1>Pathfinding</h1>
       <div style={{ position: 'absolute', top: '20px', left: '20px' }}>
         {results.length > 0 && !isShowTable && (
           <div className='results'>
