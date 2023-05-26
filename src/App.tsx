@@ -99,7 +99,6 @@ const App: React.FC = () => {
     setIsRunning(false); // Stop the algorithm if it's running
     setMovingObjectCoordinates([]); // Clear the moving object coordinates
     setBlockingObjectCoordinates([]); // Clear the blocking object coordinates
-    setMatrixSize(5); // Reset matrix size
     generateBlockingObjects(); // Generate new blocking objects
     setExecutionTime(0);
     setStepsCount(0);
