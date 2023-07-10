@@ -4,7 +4,7 @@
 <h4>Build with</h4>
 <ul>
 
-  <li>ReactJs</li>
+  <li>React with Typescript</li>
 
 <h4>To get local copy up and running follow these simple steps:</h4>
 <ul>
