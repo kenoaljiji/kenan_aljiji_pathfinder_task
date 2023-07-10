@@ -1,6 +1,6 @@
 # Pathfinder
 
-<p>Pathfinder a task for FatCat  </p>
+<p>Pathfinder </p>
 <h4>Build with</h4>
 <ul>
 
