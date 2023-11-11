@@ -40,26 +40,31 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
     setMatrixSize(newSize);
     setEndX(newSize - 1);
     setEndY(newSize - 1);
+    handleResetButtonClick();
   };
 
   const handleStartXChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(event.target.value);
     setStartX(newValue);
+    handleResetButtonClick();
   };
 
   const handleStartYChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(event.target.value);
     setStartY(newValue);
+    handleResetButtonClick();
   };
 
   const handleEndXChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(event.target.value);
     setEndX(newValue);
+    handleResetButtonClick();
   };
 
   const handleEndYChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(event.target.value);
     setEndY(newValue);
+    handleResetButtonClick();
   };
 
   const handleBlockingObjectCountChange = (
